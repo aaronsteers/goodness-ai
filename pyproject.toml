@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "goodness-ai"
+version = "0.1.0"
+description = ""
+authors = ["Aaron Steers <aj@airbyte.io>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10,<3.13" # Crew AI reports max version of 3.12
+crewai = {version = "^0.30.11", extras = ["tools"]}
+python-dotenv = "^1.0.1"
+pyyaml = "^6.0.1"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.4.4"
+pytest-mock = "^3.14.0"
+pytest = "^8.2.0"
+
+[tool.poetry.scripts]
+goodness-ai = "goodness_ai.cli:run"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

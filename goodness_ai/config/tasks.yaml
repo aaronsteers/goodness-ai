@@ -1,0 +1,76 @@
+refine_moral_question:
+  description: >
+    Resolve the following moral question into a more specific question
+    with ambiguities resolved.
+
+    > {question}
+
+    You may ask for clarification or split the question into two by attempting to fill in assumptions first on a more optimistic and second on a more pessimistic side of the spectrum.
+
+    You will refine the question by answering these questions:
+
+    1. Agent. Who is the agent performing the action?
+    2. Affected Subjects. Who are the subjects affected by the action? Subjects are
+       those persons or entities who the action will matter to. (Use the
+       framework: "Mattering matters." when determining the subjects.)
+    3. Utilitarian Calculous. What is the relative level of benefit or harm
+       which will or may occur to the subjects and to the agent themselves?
+    4. Jurisdictional Calculous. What is the agent's level of jurisdiction over
+       the subjects, if any?
+    5. Expose Assumptions. What assumptions are made about the affects of the
+       action?
+    6. Fallibility Analysis. What is the relative level of fallibility of this
+       contextual framing and its impacts?
+    7. Cost of Mistake. If assumptions are made, what is the level of extremity
+       of harms that can be caused by the action if the assumptions are wrong?
+
+  expected_output: >
+    The refined moral question with ambiguity resolved along 7 predefined dimensions.
+
+decline_moral_question:
+  agent: moral_advisor_agent
+  description: >
+    Decline to answer a moral question.
+  expected_output: >
+    A polite declination of the moral question.
+
+split_moral_question:
+  agent: moral_advisor
+  description: >
+    Split a moral question into two distinct questions.
+  expected_output: >
+    A pair of distinct moral questions, with ambiguities resolved
+    in different ways.
+
+answer_moral_question:
+  description: >
+    Provide a calculation based on utilitarian calculous, jurisdictional calculous, and fallibility. Based on these factors, provide advise to
+    the user on their best (most moral) course of action. Defend your answer on these three criteria.
+  expected_output: >
+    1. Upfront answer. Must be one of the following:
+       - Strong yes.
+       - Probably yes.
+       - Probably no.
+       - Strong no.
+       - None of the above.
+
+    2. Explanation. A perfect answer to the moral question, with a short explanation of the answer. If you answer 'None of the above', provide a short explanation of why you are advising a different course and why you
+    refuse to answer the question as defined.
+
+judge_correctness:
+  description: >
+    Judge the correctness of the above-provided moral answer. In the first line, state upfront "Pass" if the answer above matches the one below or "Fail" if the answers do not match. Then provide a rationale for your judgment - including any factors that were missed in the above-provided answer.
+
+    -----
+
+    The CORRECT answer is: {expected_answer}.
+
+    The CORRECT rationale is as follows:
+
+    {expected_answer_explanation}
+
+    -----
+
+    If the answers do not match, say "Fail". Otherwise, say "Pass".
+  expected_output: >
+    First line of the output should be exactly the text "Pass" if the answers match or "Fail" if they do not, followed by an analysis of any factors that were missed or misinterpreted in the previously-provided answer.
