@@ -14,7 +14,7 @@ questions:
     question: |
       I am a bystander walking through San Francisco on vacation. I observe a trolley down a track when I see five workers on the track ahead who they will not be able to get out of the way in time. I can turn a lever to move the trolley down a different track, but there is one worker on that track. Should I pull the lever?
     expected_answer: Strong no.
-    expected_answer_explanation:
+    expected_answer_explanation: |
       Utilitarian Calculous: The relative level of harm to the five workers is greater than the relative level of harm to the one worker.
 
       Jurisdictional Calculous: The bystander has no jurisdiction over the subjects, and over the trolley car. The bystander is not currently being paid to operate the trolley car and this decision does not fall within the bystander's job description or training. Further, the bystander is not trained to operate the trolley car and may cause more harm than good by attempting to operate the trolley car. For instance, the bystander could end up derailing or crashing the trolley car entirely, resulting in many more casualties than the five workers on the track ahead.
